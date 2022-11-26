@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Alert ASCII Code</title>
+</head>
+<body>
+    
+    <script>
+        document.onkeydown=function()
+        {
+            var msg = event.which;
+            if(event.altKey == true)
+                msg += "\n Its Alt Key."
+            else if(event.shiftKey == true)
+                msg += "\n Its shift Key."
+            else
+                msg += "\n Not Alt or Shift"
+            alert(msg);
+        }
+        document.oncontextmenu= function()
+        {
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>

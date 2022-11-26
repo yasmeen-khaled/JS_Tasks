@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>Welocomg Window</title>
+</head>
+<body onload="setCookie('cnt' , parseInt(getCookie('cnt'))+1)">
+    
+    <p id="welcomeParagraph">
+        
+    </p>
+  
+
+    <script src="./cookiesFunctions.js"></script>
+    <script>
+        document.getElementById("welcomeParagraph").innerHTML = 
+        ("Welcome <span style='color:" + getCookie('color')+ ";'>" + getCookie("name") + "</span> you have entered this website <span style='color:" + getCookie('color')+ ";'>"+getCookie("cnt") + "</span> times");
+        
+        window.addEventListener('popstate', function (event)
+        {
+            location.assign('./welcomingWindow.html');
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>Registeration Window</title>
+    <script src="./cookiesFunctions.js"></script>
+    <script>
+        //console.log("headScript");
+        if(hasCookie("name"))
+        {
+            //location.replace('./welcomingWindow.html');
+        }
+    </script>
+</head>
+<body>
+    <label>Enter your Name</label>
+    <input type="text" name="name" onblur="setCookie(this.name , this.value , 7)">
+    <br>
+    <label>Enter your Age</label>
+    <input type="text" name="age" onblur="setCookie(this.name , this.value)">
+    <br>
+    <label class="answer">
+        <img src="./Cookie/1.jpg">
+        <input type="radio" name="gender" value="male" onclick="setCookie(this.name , this.value)">
+    </label>
+    <label class="answer">
+        <img src="./Cookie/2.jpg">
+        <input type="radio" name="gender" value="female" onclick="setCookie(this.name , this.value)"> 
+    </label>
+    <br>
+    <!-- input color -->
+    <select id="color" name="color" value="red" onclick="setCookie(this.name , this.value)">
+        <option value="red" selected>red</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+      </select>
+    <br>
+    <br>
+    <input type="button" value="register" onclick="updateCounter();setColor();location.replace('./welcomingWindow.html');">
+    <script>
+        function updateCounter()
+        {
+            if(hasCookie("cnt"))
+            {
+                setCookie('cnt' , getCookie("cnt")+1);
+            }
+            else
+                setCookie('cnt' , 1);
+        }
+        console.log("kkk");
+
+        function setColor()
+        {
+            console.log("ccc");
+            setCookie("color" , document.getElementById("color").value) ;
+        }
+    </script>
+</body>
+</html>

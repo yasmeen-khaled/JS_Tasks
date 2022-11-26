@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Moving pic</title>
+    <style>
+        .frame {
+            height: 500px; 
+            width: 500px; 
+            position: relative;
+            border: 2px solid red;
+            border-radius: 5px;
+        }
+        .left-img {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+        .right-img {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 90%;
+        }
+        .top-img {
+            margin: 0;
+            position: absolute;
+            top: 92%;
+            left: 45%;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <img class="left-img " src="./icon1.gif">
+        <img class="right-img " src="./icon2.gif">
+        <img class="top-img " src="./TOP.JPG">
+    </div>
+    <br>
+    <input type="button" value="go" onclick="animateAll();">
+    <input type="button" value="stop" onclick="stop();">
+
+    <script src="./movePic.js"></script>
+</body>
+</html>

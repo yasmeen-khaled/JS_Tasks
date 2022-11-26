@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <title>Card Generator</title>
+    <style>
+        img{
+            height: 150px;
+            width: 150px;
+        }
+        table,textarea ,input{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1,h2,td{
+            text-align: center;
+        }
+        h1,h2{
+            color:cadetblue;
+        }
+    </style>
+</head>
+<body style="background-color:  bisque">
+    <h1 style="">Generate a get well soon card</h1>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <label>
+                        <img src="./gws.jpg">
+                        <br>
+                        <input type="radio" name="image" value="./gws.jpg" checked>
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <img src="./gws2.jpg">
+                        <br>
+                        <input type="radio" name="image" value="./gws2.jpg">
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <img src="./gws3.jpg">
+                        <br>
+                        <input type="radio" name="image" value="./gws3.jpg">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <img src="./gwsf.jpg">
+                        <br>
+                        <input type="radio" name="image" value="./gwsf.jpg">
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <img src="./gwsf2.jpg">
+                        <br>
+                        <input type="radio" name="image" value="./gwsf2.jpg">
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <img src="./gwsf3.jpg">
+                        <br>
+                        <input type="radio" name="image" value="./gwsf3.jpg">
+                    </label>
+                </td>
+            </tr>
+            
+            
+        </table>
+        <h2>Personal Message</h2>
+        <textarea id="msg" style="display: block;" rows="7" cols="70"></textarea>
+        <br>
+        <input style="display: block;" type="button" value="generate" onclick="openWindow('./generatedCard.html')">
+        
+    </div>
+    <script>
+        function openWindow(address)
+        {
+            setCookie('src' , document.querySelector('input[name="image"]:checked').value);
+            setCookie('msg' , document.getElementById('msg').value);
+            window.open(address, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+            //createCard();
+        }
+    </script>
+    <script src="./cookiesFunctions.js"></script>
+</body>
+</html>
