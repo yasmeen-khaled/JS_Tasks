@@ -27,7 +27,7 @@ function action()
     }
     else
     {
-        alert("else");
+        //alert("else");
         clearInterval(timer);
     }
 }
