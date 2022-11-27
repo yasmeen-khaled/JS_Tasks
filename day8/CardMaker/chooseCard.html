@@ -74,16 +74,51 @@
         <h2>Personal Message</h2>
         <textarea id="msg" style="display: block;" rows="7" cols="70"></textarea>
         <br>
-        <input style="display: block;" type="button" value="generate" onclick="openWindow('./generatedCard.html')">
+        <input style="display: block;" type="button" value="generate" onclick="openWindow()">
         
     </div>
+    <!-- <script src="./cardGenerator.js"></script> -->
     <script>
-        function openWindow(address)
+        var chW;
+        function openWindow()
         {
-            setCookie('src' , document.querySelector('input[name="image"]:checked').value);
+            setCookie('src' , document.querySelector('input[name="image"]:checked').previousElementSibling.previousElementSibling.src);
             setCookie('msg' , document.getElementById('msg').value);
-            window.open(address, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
-            //createCard();
+            chW = window.open("", '', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+            createCard(chW);
+        }
+        var imgTag;var src;
+        function createCard(chW)
+        {
+            chW.document.documentElement.lastChild.remove();
+            var body = chW.document.createElement("body");
+            
+            chW.document.documentElement.appendChild(body);
+            //pic
+             src = getCookie('src');
+            //alert(src);
+            imgTag = chW.document.createElement("img");
+            imgTag.src = src;
+            imgTag.style.height = '450px';
+            imgTag.style.width = '450px';
+            body.appendChild(imgTag);
+            //msg
+            var pTag = chW.document.createElement("p");
+            var msg = getCookie('msg');
+            pTag.innerText = msg;
+            pTag.style.textAlign = 'center';
+            pTag.style.color = 'cadetblue';
+            pTag.style.fontWeight = 'bold';
+            body.appendChild(pTag);
+            
+            //button
+            var btn = document.createElement("input");
+            btn.type="button";
+            btn.value = "Close Preview";
+            btn.style.display="block";
+            btn.style.margin="auto";
+            btn.setAttribute('onclick' , 'window.close()');
+            body.appendChild(btn);
         }
     </script>
     <script src="./cookiesFunctions.js"></script>

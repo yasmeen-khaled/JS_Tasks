@@ -6,21 +6,24 @@ var timer;
 
 //2 register to event --> object listen to myEvent
 //                               hndlr
-obj.addEventListener("timeout" , function(){
+document.addEventListener("timeout" , function(){
     
-    timer = setInterval(action, 500);
+    timer = setInterval(action, 10 * 1000);
 });
 
-console.log("HERE");
+//console.log("HERE");
 
 function action()
 {
-    alert("action");
+    //alert("action");
     var fname = document.getElementById("fname");
     var lname = document.getElementById("lname");
-    if(fname.innerText=="" && lname.innerText =="")
+    if(fname.value=="" && lname.value =="")
     {
         alert("you have not entered any data for 30 seconds");
+        //clearInterval(timer);
+        //Stimer = setInterval(action, 2 * 1000);
+
     }
     else
     {
